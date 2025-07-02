@@ -1,19 +1,27 @@
 import { Stack } from 'expo-router';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
+import { Colors } from '../constants/Colors'
+import { StatusBar } from 'expo-status-bar';
 
 export default function Layout() {
-  return (
-    <Stack screenOptions={{
-      headerStyle: { backgroundColor: '#f4511e' },
-      headerTintColor: '#fff',
-      
-    }}>
-      {/* Main Content */}
-      <Stack.Screen name="index" options={{ title: 'Home' }} />
-      <Stack.Screen name="about" options={{ title: 'About' }} />
-      <Stack.Screen name="contact" options={{ title: 'Contact', headerShown: false }} />
+  const colorScheme = useColorScheme() ?? 'light';
+  const theme = Colors[colorScheme];
 
-    </Stack>
+  return (
+    <>
+      <StatusBar style="auto" />
+      <Stack screenOptions={{
+        headerStyle: { backgroundColor: theme.navBackground },
+        headerTintColor: theme.title,
+        
+      }}>
+        {/* Main Content */}
+        <Stack.Screen name="index" options={{ title: 'Home' }} />
+        <Stack.Screen name="about" options={{ title: 'About' }} />
+        <Stack.Screen name="contact" options={{ title: 'Contact' }} />
+
+      </Stack>
+    </>
   );
 }
 
