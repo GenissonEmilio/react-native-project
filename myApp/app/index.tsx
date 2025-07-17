@@ -14,6 +14,10 @@ export default function Home(): JSX.Element {
         This is the home page of the application
       </Text>
 
+      <Text style={{ marginTop: 10, justifyContent: 'center', textAlign: 'center' }}>
+        You can navigate to the About and Contact pages using the links below.
+      </Text>
+
       <Link href="/about" style={styles.link}>Go to the about page</Link>
       <Link href="/contact" style={styles.link}>Go to the contact page</Link>
     </View>
